@@ -36,5 +36,7 @@ namespace ProductManagement.Business.Concrete
         {
             _products.Clear();
         }
+
+        
     }
 }

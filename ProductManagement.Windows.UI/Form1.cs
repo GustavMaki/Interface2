@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProductManagement.Business.Concrete;
+using ProductManagement.Business.Abstract;
 
 namespace ProductManagement.Windows.UI
 {
     public partial class Form1 : Form
     {
-        private LocalStorage _repository;
+        private IRepository _repository;
         private ShoppingCart _cart;
         public Form1()
         {
             InitializeComponent();
 
-            _repository = new LocalStorage();
+            //_repository = new LocalStorage();
+            _repository = new DataRepository();
+            //Detta ovanför är intro till DI - Dependency Injection
+
             _cart = new ShoppingCart();
 
             //Populera listan med alla produkter
@@ -30,7 +34,8 @@ namespace ProductManagement.Windows.UI
             }
         }
 
-       
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
